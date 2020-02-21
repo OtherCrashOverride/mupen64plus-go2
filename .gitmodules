@@ -1,12 +1,6 @@
 [submodule "source/mupen64plus-audio-sdl"]
 	path = source/mupen64plus-audio-sdl
 	url = https://github.com/mupen64plus/mupen64plus-audio-sdl.git
-[submodule "source/mupen64plus-core-go2"]
-	path = source/mupen64plus-core-go2
-	url = https://github.com/OtherCrashOverride/mupen64plus-core-go2.git
-[submodule "source/mupen64plus-input-sdl-go2"]
-	path = source/mupen64plus-input-sdl-go2
-	url = https://github.com/OtherCrashOverride/mupen64plus-input-sdl-go2.git
 [submodule "source/mupen64plus-rom"]
 	path = source/mupen64plus-rom
 	url = https://github.com/mupen64plus/mupen64plus-rom.git
@@ -19,3 +13,9 @@
 [submodule "source/mupen64plus-video-rice"]
 	path = source/mupen64plus-video-rice
 	url = https://github.com/mupen64plus/mupen64plus-video-rice.git
+[submodule "source/mupen64plus-core"]
+	path = source/mupen64plus-core
+	url = https://github.com/OtherCrashOverride/mupen64plus-core-go2.git
+[submodule "source/mupen64plus-input-sdl"]
+	path = source/mupen64plus-input-sdl
+	url = https://github.com/OtherCrashOverride/mupen64plus-input-sdl-go2.git

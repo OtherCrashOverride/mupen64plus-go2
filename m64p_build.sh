@@ -33,9 +33,11 @@ fi
 mkdir -p ./test/
 MAKE_INSTALL="PLUGINDIR= SHAREDIR= BINDIR= MANDIR= LIBDIR= APPSDIR= ICONSDIR=icons INCDIR=api LDCONFIG=true "
 
-CFLAGS='-march=armv8-a+crc -mtune=cortex-a35 -fuse-linker-plugin'
-CXXFLAGS=$CFLAGS
-LDFLAGS=$CFLAGS
+CFLAGS='-march=armv8-a+crc -mtune=cortex-a35 -fuse-linker-plugin'; export CFLAGS
+CXXFLAGS=$CFLAGS; export CXXFLAGS
+LDFLAGS=$CFLAGS; export LDFLAGS
+
+VARS="NEON=1 VFP_HARD=1 USE_GLES=1 HOST_CPU=armv7 V=1"
 
 for component in ${M64P_COMPONENTS}; do
 	if [ "${component}" = "core" ]; then
@@ -52,9 +54,9 @@ for component in ${M64P_COMPONENTS}; do
 	fi
 
 	echo "************************************ Building ${component} ${component_type}"
-	"$MAKE" -C source/mupen64plus-${component}/projects/unix clean $@
-	"$MAKE" -C source/mupen64plus-${component}/projects/unix all NEON=1 VFP_HARD=1 USE_GLES=1 HOST_CPU=armv7 V=1 $@
-	"$MAKE" -C source/mupen64plus-${component}/projects/unix install $@ ${MAKE_INSTALL} DESTDIR="$(pwd)/test/"
+	"$MAKE" -C source/mupen64plus-${component}/projects/unix clean $VARS $@
+	"$MAKE" -C source/mupen64plus-${component}/projects/unix all $VARS $@
+	"$MAKE" -C source/mupen64plus-${component}/projects/unix install $VARS $@ ${MAKE_INSTALL} DESTDIR="$(pwd)/test/"
 
 	mkdir -p ./test/doc
 	for doc in LICENSES README RELEASE; do
