@@ -33,11 +33,17 @@ fi
 mkdir -p ./test/
 MAKE_INSTALL="PLUGINDIR= SHAREDIR= BINDIR= MANDIR= LIBDIR= APPSDIR= ICONSDIR=icons INCDIR=api LDCONFIG=true "
 
-CFLAGS='-march=armv8-a+crc -mtune=cortex-a35 -fuse-linker-plugin'; export CFLAGS
+CFLAGS='-march=armv8-a+crc -mtune=cortex-a35 -fuse-linker-plugin'
+CFLAGS="${FLAGS} -flto=$(nproc) -fuse-linker-plugin"
+export CFLAGS
+
 CXXFLAGS=$CFLAGS; export CXXFLAGS
 LDFLAGS=$CFLAGS; export LDFLAGS
 
 VARS="NEON=1 VFP_HARD=1 USE_GLES=1 HOST_CPU=armv7 V=1"
+
+OPTFLAGS="-O3"
+export OPTFLAGS
 
 for component in ${M64P_COMPONENTS}; do
 	if [ "${component}" = "core" ]; then
