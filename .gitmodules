@@ -1,6 +1,7 @@
 [submodule "source/mupen64plus-audio-sdl"]
 	path = source/mupen64plus-audio-sdl
-	url = https://github.com/mupen64plus/mupen64plus-audio-sdl.git
+	url = https://github.com/OtherCrashOverride/mupen64plus-audio-sdl-go2
+	branch = libgo2
 [submodule "source/mupen64plus-rom"]
 	path = source/mupen64plus-rom
 	url = https://github.com/mupen64plus/mupen64plus-rom.git
